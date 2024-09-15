@@ -11,7 +11,7 @@ class WeatherScreen extends StatelessWidget {
 
   String getDayOfWeek(String dateTime) {
     DateTime date = DateTime.parse(dateTime);
-    return DateFormat('EEE').format(date); // EEE returns abbreviated day (e.g., Fri)
+    return DateFormat('EEE').format(date);
   }
 
   @override
@@ -25,6 +25,7 @@ class WeatherScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SizedBox(height: 10,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -85,7 +86,6 @@ class WeatherScreen extends StatelessWidget {
                     } else if (provider.error != null) {
                       return Center(child: Text(provider.error!));
                     } else if (provider.forecast != null && provider.forecast!.isNotEmpty) {
-                      // Extract data for the first day
                       ForecastModel firstDayForecast = provider.forecast!.first;
                       double temperature = firstDayForecast.temperature;
                       double tempMin = firstDayForecast.tempMin;

@@ -17,7 +17,7 @@ Future<List<ForecastModel>> getFiveDayForecast(String city) async {
       List<ForecastModel> dailyForecastsAt3AM = forecastList
           .where((forecast) {
         String dateTime = forecast['dt_txt'];
-        return dateTime.contains("03:00:00");
+        return dateTime.contains("21:00:00");
       })
           .map<ForecastModel>((forecast) => ForecastModel.fromJson(forecast))
           .toList();
